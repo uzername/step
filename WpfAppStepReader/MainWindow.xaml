@@ -1,0 +1,18 @@
+﻿<Window x:Class="WpfAppStepReader.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfAppStepReader"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="722" ResizeMode="NoResize">
+    <Grid>
+        <TextBox x:Name="FilePathField" HorizontalAlignment="Left" Margin="5,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="586"/>
+        <Button x:Name="BrowseButton" Content="Browse" HorizontalAlignment="Left" Margin="598,4,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="ParseButton" Content="Parse" HorizontalAlignment="Left" Margin="650,4,0,0" VerticalAlignment="Top" Width="62" Click="ParseButton_Click"/>
+        <DataGrid Margin="5,28,464,10"/>
+        <TextBox HorizontalAlignment="Left" Margin="263,28,0,10" Text="" Name="MyTextBox" AcceptsReturn="True" AcceptsTab="True"
+         TextWrapping="Wrap" Width="449"/>
+
+    </Grid>
+</Window>

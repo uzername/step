@@ -80,7 +80,7 @@ namespace IxMilia.Step.Items
             }
             else
             {
-                // TODO:
+                // TODO: IMPLEMENTATION OF COMPLEX ITEM
             }
 
             return item;
