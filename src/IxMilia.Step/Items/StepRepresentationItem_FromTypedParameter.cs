@@ -81,6 +81,20 @@ namespace IxMilia.Step.Items
             else
             {
                 // TODO: IMPLEMENTATION OF COMPLEX ITEM
+                // complex item is a hierarchical item which assembles data from inherited items
+                // http://www.steptools.com/stds/step/IS_final_p21e3.html#clause-12-2-5
+                if (itemSyntax is StepComplexItemSyntax)
+                {
+                    List<StepRepresentationItem> obtainedComponents = new List<StepRepresentationItem>();
+                    foreach(StepSimpleItemSyntax componentItem in (itemSyntax as StepComplexItemSyntax).Items)
+                    {
+                        StepRepresentationItem rItem= StepRepresentationItem.FromTypedParameter(binder, componentItem);
+                        if (rItem != null)
+                        {
+                            obtainedComponents.Add(rItem);
+                        }
+                    }
+                }
             }
 
             return item;
