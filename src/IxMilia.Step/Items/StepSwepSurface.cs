@@ -10,7 +10,7 @@ using System.Text;
             public StepSwepSurface(string name) : base(name)
             {
             }
-
+            // it should have Curve here
         }
     }
 

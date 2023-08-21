@@ -26,7 +26,8 @@ namespace IxMilia.Step.Items
         ToroidalSurface,
         ClosedShell,
         SurfaceOfRevolution,
-        ComplexItem
+        ComplexItem,
+        BoundedSurface
     }
 
     internal static class StepItemTypeExtensions
