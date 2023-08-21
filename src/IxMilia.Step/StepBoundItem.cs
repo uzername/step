@@ -15,7 +15,7 @@ namespace IxMilia.Step
             Item = item;
         }
 
-        public TItemType AsType<TItemType>() where TItemType : StepRepresentationItem
+        public TItemType AsType<TItemType>(System.Func<StepComplexItem, TItemType> ComplexToSimple = null) where TItemType : StepRepresentationItem
         {
             TItemType result = null;
             if (IsAuto)
@@ -27,6 +27,10 @@ namespace IxMilia.Step
                 result = Item as TItemType;
                 if (result == null)
                 {
+                    if (ComplexToSimple != null && Item is StepComplexItem complexItem)
+                    {
+                        return ComplexToSimple(complexItem);
+                    }
                     throw new StepReadException("Unexpected type", CreatingSyntax.Line, CreatingSyntax.Column);
                 }
             }

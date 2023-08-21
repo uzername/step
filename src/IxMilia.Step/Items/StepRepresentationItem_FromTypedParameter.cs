@@ -70,6 +70,19 @@ namespace IxMilia.Step.Items
                     case StepItemTypeExtensions.VertexPointText:
                         item = StepVertexPoint.CreateFromSyntaxList(binder, simpleItem.Parameters);
                         break;
+                    // New items R1C4RDO13
+                    case StepItemTypeExtensions.ToroidalSurfaceText:
+                        item = StepToroidalSurface.CreateFromSyntaxList(binder, simpleItem.Parameters);
+                        break;
+                    case StepItemTypeExtensions.ClosedShellText:
+                        item = StepClosedShell.CreateFromSyntaxList(binder, simpleItem.Parameters);
+                        break;
+                    case StepItemTypeExtensions.Axis1PlacementText:
+                        item = StepAxis1Placement.CreateFromSyntaxList(binder, simpleItem.Parameters);
+                        break;
+                    case StepItemTypeExtensions.SurfaceOfRevolutionText:
+                        item = StepSurfaceOfRevolutation.CreateFromSyntaxList(binder, simpleItem.Parameters);
+                        break;
                     default:
                         if (UnsupportedItemTypes.Add(simpleItem.Keyword))
                         {
@@ -80,21 +93,10 @@ namespace IxMilia.Step.Items
             }
             else
             {
-                // TODO: IMPLEMENTATION OF COMPLEX ITEM
-                // complex item is a hierarchical item which assembles data from inherited items
-                // http://www.steptools.com/stds/step/IS_final_p21e3.html#clause-12-2-5
-                if (itemSyntax is StepComplexItemSyntax)
-                {
-                    List<StepRepresentationItem> obtainedComponents = new List<StepRepresentationItem>();
-                    foreach(StepSimpleItemSyntax componentItem in (itemSyntax as StepComplexItemSyntax).Items)
-                    {
-                        StepRepresentationItem rItem= StepRepresentationItem.FromTypedParameter(binder, componentItem);
-                        if (rItem != null)
-                        {
-                            obtainedComponents.Add(rItem);
-                        }
-                    }
-                }
+                // TODO: ??????
+                // better complex item
+                var complexItem = (StepComplexItemSyntax)itemSyntax;
+                item = new StepComplexItem(complexItem.Items);
             }
 
             return item;

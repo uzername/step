@@ -77,3 +77,7 @@ To build locally, install the [latest .NET Core 3.0 SDK](https://dotnet.microsof
 Using spec from steptools.com [here](http://www.steptools.com/library/standard/IS_final_p21e3.html).
 
 STEP Application Protocols [here](http://www.steptools.com/support/stdev_docs/express/).
+
+Some changes taken from https://github.com/R1C4RDO13/step : 
+
+> StepAxis1Placement, StepClosedShell, StepConnectedFaceSet, StepSurfaceOfRevolutation , StepSwepSurface , StepToroidalSurface , added StepComplexItem : StepRepresentationItem to store complex items parameters,

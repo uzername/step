@@ -103,7 +103,11 @@ namespace IxMilia.Step
                 ReadNextLine();
             }
         }
-
+        /// <summary>
+        /// Gets all individual components from the file
+        /// eg:: {ISO-10303-21} ; {;} ; {HEADER} ; {;} ; {FILE_DESCRIPTION} ; ...
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<StepToken> GetTokens()
         {
             char? cn;
